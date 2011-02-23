@@ -1,0 +1,6 @@
+blah blah [url=http://example.com//redirect.php?url=http://ya.ru]test[/url], dfsdf fdfsd dsfdf dfdsfdsfdsf
+[img=http://example.com/sample.jpg][/img] dfdsfds dsfd fdf df dsfds f
+[b]dfdsfdsf[/b] dfdsfsfsdfdsf [b]dfdsfdsfsd dsfsdfa[/b]
+fdfsdf [i]dsfdfdf[/i] dfdsfdf d[u]dfdsfdf[/u] dfdsfdsfds
+dfdsfsdf [s]dfdsfdsfdsf[/s] dfsdf fd[s]dfsdfdsf[/s]
+fsdfdsfs [i]dfdsfd dfdsfd[/i]
