@@ -6,6 +6,7 @@ import unicodedata
 import string
 from lxml.cssselect import CSSSelector
 
+
 class Parser:
     """ Simple wrapper around lxml object """
     def __init__(self, element):
@@ -28,24 +29,10 @@ class Parser:
     def html(self, encoding="utf8"):
         """ Return html of element """
         return lxml.html.tostring(self.element, encoding=self.encoding)
-    
-    def get_by_id(self, id, default=None):
-        """ Return first element with the given id or default """
-        return self.element.get_element_by_id(id, default)
-    
+
     def __unicode__(self):
         return lxml.html.tostring(self.element, method='text', encoding=self.encoding).decode(self.encoding)
-    
-    def xpath(self, query, **kwargs):
-        """ Evaluate an xpath expression using the element as context node. """
-        elements = []
-        for element in self.element.xpath(query, **kwargs):
-            if isinstance(element, lxml.html.HtmlElement):
-                elements.append(Parser(element))
-            else:
-                elements.append(element)
-        return elements
-    
+
     def parse(self, func, *args, **kwargs):
         """ Parse element with given function"""
         result = []
@@ -58,17 +45,23 @@ class Parser:
             else:
                 result.append(element)
         return u"".join(result)
-    
-    def find(self, path):
-        """ Finds the first matching subelement, by tag name or path. """
-        element = self.element.find(path)
-        if element:
-            return Parser(element)
-        return None
-    
-    def findall(self, path):
-        """ Finds all matching subelements, by tag name or path. """
-        return [Parser(element) for element in self.element.findall(path)]
+
+    def _wrap_result(self, func):
+        """ Wrap result in Parser instance """
+        def wrapper(*args):
+            result = func(*args)
+            if hasattr(result, '__iter__'):
+                return [self._wrap_element(element) for element in result]
+            else:
+                return self._wrap_element(result)
+        return wrapper
+
+    def _wrap_element(self, result):
+        """ Wrap single element in Parser instance """
+        if isinstance(result, lxml.html.HtmlElement):
+            return Parser(result)
+        else:
+            return result
 
     def __getattr__(self, name):
         """  Nice attribution getter modification """
@@ -76,15 +69,23 @@ class Parser:
         if name in self.element.attrib:
             return self.element.attrib[name]
         # If attrib with that name doesn't exists return lxml attrib
-        return getattr(self.element, name, None)
+        result = getattr(self.element, name, None)
+        # If result is callable -- decorate it.
+        if callable(result):
+            return self._wrap_result(result)
+        else:
+            return result
+
 
 def parse(html_string):
     """ Parse html with wrapper """
     return Parser(lxml.html.fromstring(html_string))
 
+
 def str2int(string_with_int):
-    """ Collect digits from str """
+    """ Collect digits from a string """
     return int("".join([char for char in string_with_int if char in string.digits]) or 0)
+
 
 def to_unicode(obj, encoding='utf-8'):
     """ Convert string to unicode string"""
@@ -93,12 +94,13 @@ def to_unicode(obj, encoding='utf-8'):
             obj = unicode(obj, encoding)
     return obj
 
-def strip_accents(s):
+
+def strip_accents(s, pass_symbols=[u'й', u'Й', u'\n']):
     """ Strip accents from a string """
     result = []
     for char in s:
         # Pass these symbols without processing
-        if char in [u'й', u'Й', u'\n']:
+        if char in pass_symbols:
             result.append(char)
             continue
         for c in unicodedata.normalize('NFD', char):
@@ -107,12 +109,13 @@ def strip_accents(s):
             result.append(c)
     return ''.join(result)
 
-def strip_symbols(s):
+
+def strip_symbols(s, pass_symbols=[u'й', u'Й', u'\n']):
     """ Strip ugly unicode symbols from a string """
     result = []
     for char in s:
         # Pass these symbols without processing
-        if char in [u'й', u'Й', u'\n']:
+        if char in pass_symbols:
             result.append(char)
             continue
         for c in unicodedata.normalize('NFKC', char):
@@ -123,10 +126,12 @@ def strip_symbols(s):
                 result.append(c)
     return u"".join(result)
 
+
 def strip_spaces(s):
-    """ Strip spaces from a string """
+    """ Strip excess spaces from a string """
     return u" ".join([c for c in s.split(u' ') if c])
 
+
 def strip_linebreaks(s):
-    """ Strip line breaks from a string """
+    """ Strip excess line breaks from a string """
     return u"\n".join([c for c in s.split(u'\n') if c])
