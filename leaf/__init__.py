@@ -88,7 +88,7 @@ def str2int(string_with_int):
 
 
 def to_unicode(obj, encoding='utf-8'):
-    """ Convert string to unicode string"""
+    """ Convert string to unicode string """
     if isinstance(obj, basestring):
         if not isinstance(obj, unicode):
             obj = unicode(obj, encoding)

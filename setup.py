@@ -17,5 +17,6 @@ setup(name='Leaft',
          'Operating System :: OS Independent',
          'Programming Language :: Python',
          'Topic :: Scientific/Engineering :: Information Analysis'],
-    install_requires = ['lxml']
+    install_requires = ['lxml'],
+    long_description=open('README.rst')
 )
