@@ -12,8 +12,8 @@ Dependencies
 
 Features
 --------
- * Nice use CSS selectors through document('div#omg .blah li') (jquery-like)
- * Simple access to element attributes like this: first_link.onclick
+ * Nice jquery-like css selectors
+ * Simple access to element attributes
  * Easy way for convert html to other format (bbcode, markdown, etc)
  * Few nice functions for work with text
  * And, of course this saves all original features of lxml
