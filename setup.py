@@ -1,8 +1,12 @@
 #!/usr/bin/env python
 # encoding: utf-8
 from setuptools import setup, find_packages
+import os.path
 
-setup(name='Leaf',
+def read(fname):
+    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+
+setup(name='leaf',
     version='0.4',
     description='Simple Python library for HTML parsing',
     author='Roman Koblov',
@@ -11,6 +15,12 @@ setup(name='Leaf',
     license='MIT',
     keywords=['html', 'parsing', 'web scrapping'],
     packages=['leaf'],
+    data_files=[
+            ('', ['LICENSE'])
+    ],
+    package_data={
+        '': ['*.txt', '*.rst', '*.md']
+    },
     classifiers=[
          'Development Status :: 3 - Alpha',
          'Intended Audience :: Developers',
@@ -18,6 +28,6 @@ setup(name='Leaf',
          'Operating System :: OS Independent',
          'Programming Language :: Python',
          'Topic :: Scientific/Engineering :: Information Analysis'],
-    install_requires = ['lxml'],
-    long_description=open('README.rst')
+    install_requires = ['setuptools', 'lxml'],
+    long_description=read('README.rst'),
 )
