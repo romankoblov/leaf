@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # encoding: utf-8
+from setuptools import setup, find_packages
 
-setup(name='Leaft',
+setup(name='Leaf',
     version='0.4',
     description='Simple Python library for HTML parsing',
     author='Roman Koblov',
