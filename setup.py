@@ -7,7 +7,7 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(name='leaf',
-    version='0.4',
+    version='0.4.2',
     description='Simple Python library for HTML parsing',
     author='Roman Koblov',
     author_email='pingu.g@gmail.com',
@@ -16,7 +16,7 @@ setup(name='leaf',
     keywords=['html', 'parsing', 'web scrapping'],
     packages=['leaf'],
     data_files=[
-            ('', ['LICENSE'])
+            ('', ['LICENSE', 'README.rst'])
     ],
     package_data={
         '': ['*.txt', '*.rst', '*.md']
