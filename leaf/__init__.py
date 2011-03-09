@@ -9,9 +9,9 @@ from lxml.cssselect import CSSSelector
 
 class Parser(object):
     """ Simple wrapper around lxml object """
-    def __init__(self, element):
+    def __init__(self, element, encoding="utf8"):
         self.element = element
-        self.encoding = "utf8"
+        self.encoding = encoding
 
     def __call__(self, selector):
         """ Simple access to CSSSelector through obj(selector) """
@@ -26,7 +26,7 @@ class Parser(object):
             return elements[0]
         return None
 
-    def html(self, encoding="utf8"):
+    def html(selfß):
         """ Return html of element """
         return lxml.html.tostring(self.element, encoding=self.encoding)
 
