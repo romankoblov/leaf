@@ -38,8 +38,8 @@ class Parser(object):
         result = []
         for element in self.xpath('child::node()'):
             if isinstance(element, Parser):
-                childrens = element.parse(func, *args, **kwargs)
-                element_result = func(element, childrens, *args, **kwargs)
+                children = element.parse(func, *args, **kwargs)
+                element_result = func(element, children, *args, **kwargs)
                 if element_result:
                     result.append(element_result)
             else:

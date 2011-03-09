@@ -41,19 +41,19 @@ So, my favorite feature is parsing html into bbcode (markdown, etc)::
 
 	# Lets define simple formatter, which pass text 
 	# and wraps links into [url][/url] (like bbcode)
-	def omgcode_formatter(element, childrens):
+	def omgcode_formatter(element, children):
 		# Replace <br> tag with line break
 	    if element.tag == 'br':
 	        return '\n'
 		# Wrap links into [url][/url]
 	    if element.tag == 'a':
-	        return u"[url=link}]{text}[/url]".format(link=element.href, text=childrens)
-		# Return childrens only for other elements.
-	    if childrens:
-	        return childrens
+	        return u"[url=link}]{text}[/url]".format(link=element.href, text=children)
+		# Return children only for other elements.
+	    if children:
+	        return children
 
-This function will be recursively called with element and childrens (this is string with 
-childrens parsing result).
+This function will be recursively called with element and children (this is string with 
+children parsing result).
 So, lets call this parser in some leaf.Parser object::
 
 	document.parse(omgcode_formatter)
