@@ -95,7 +95,7 @@ def to_unicode(obj, encoding='utf-8'):
     return obj
 
 
-def strip_accents(s, pass_symbols=[u'й', u'Й', u'\n']):
+def strip_accents(s, pass_symbols=(u'й', u'Й', u'\n')):
     """ Strip accents from a string """
     result = []
     for char in s:
@@ -110,7 +110,7 @@ def strip_accents(s, pass_symbols=[u'й', u'Й', u'\n']):
     return ''.join(result)
 
 
-def strip_symbols(s, pass_symbols=[u'й', u'Й', u'\n']):
+def strip_symbols(s, pass_symbols=(u'й', u'Й', u'\n')):
     """ Strip ugly unicode symbols from a string """
     result = []
     for char in s:
