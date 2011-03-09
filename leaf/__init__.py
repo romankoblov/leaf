@@ -7,7 +7,7 @@ import string
 from lxml.cssselect import CSSSelector
 
 
-class Parser:
+class Parser(object):
     """ Simple wrapper around lxml object """
     def __init__(self, element):
         self.element = element
