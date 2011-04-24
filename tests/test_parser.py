@@ -18,6 +18,8 @@ def test_selectors():
 def test_attribs():
     document = leaf.parse(sample)
     first_link = document.get('div#menu li')
+    assert bool(document.get('div#menu li')) == True, "Node bool"
+    assert bool(document.get('div#menu_test li')) == False, "Node bool"
     assert isinstance(first_link, leaf.Parser), "Get first element"
     assert first_link.id == 'first_link', "Id attrib"
     assert first_link.onclick == "alert('test')", "Onclick attrib"

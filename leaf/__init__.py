@@ -75,6 +75,9 @@ class Parser(object):
             return self._wrap_result(result)
         else:
             return result
+    
+    def __nonzero__(self):
+        return self.element is not None
 
 
 def parse(html_string):
