@@ -6,7 +6,6 @@ import unicodedata
 import string
 from lxml.cssselect import CSSSelector
 
-
 class Parser(object):
     """ Simple wrapper around lxml object """
     def __init__(self, element, encoding="utf8"):
@@ -19,12 +18,15 @@ class Parser(object):
         return [Parser(element) for element in result]
     css = __call__
 
-    def get(self, selector):
+    def get(self, selector, index=0, default=None):
         """ Get first element from CSSSelector """
         elements = self(selector)
         if elements:
-            return elements[0]
-        return None
+            try:
+                return elements[index]
+            except (IndexError):
+                pass
+        return default
 
     def html(self):
         """ Return html of element """
@@ -80,7 +82,7 @@ class Parser(object):
         return self.element is not None
 
 
-def parse(html_string):
+def parse(html_string, wrapper=Parser):
     """ Parse html with wrapper """
     return Parser(lxml.html.fromstring(html_string))
 
