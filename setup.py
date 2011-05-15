@@ -29,5 +29,5 @@ setup(name='leaf',
          'Programming Language :: Python',
          'Topic :: Scientific/Engineering :: Information Analysis'],
     install_requires = ['setuptools', 'lxml'],
-    long_description=read('README.rst'),
+    long_description=read('README.rst')+read('CHANGES.rst'),
 )
