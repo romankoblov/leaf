@@ -78,6 +78,14 @@ class Parser(object):
         else:
             return result
     
+    def __setattr__(self, name, value):
+        """ Easy access to attribute modification """
+        # Simple hack for break setattr recursion
+        if name in ['element', 'encoding']:
+            super(Parser, self).__setattr__(name, value)
+        if name in self.element.attrib:
+            self.element.attrib[name] = value
+    
     def __nonzero__(self):
         return self.element is not None
 

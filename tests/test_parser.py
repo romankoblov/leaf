@@ -25,6 +25,8 @@ def test_attribs():
     assert isinstance(first_link, leaf.Parser), "Get first element"
     assert first_link.id == 'first_link', "Id attrib"
     assert first_link.onclick == "alert('test')", "Onclick attrib"
+    first_link.onclick = 'blah()'
+    assert first_link.onclick == 'blah()', "Attribute modification"
 
 def test_html():
     document = leaf.parse(sample)
