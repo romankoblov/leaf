@@ -32,6 +32,9 @@ class Parser(object):
         """ Return html of element """
         return lxml.html.tostring(self.element, encoding=self.encoding)
 
+    def inner_html(self):
+        return ''.join([child.html() for child in self.iterdescendants()])
+
     def __unicode__(self):
         return lxml.html.tostring(self.element, method='text', encoding=self.encoding).decode(self.encoding)
 
@@ -77,7 +80,7 @@ class Parser(object):
             return self._wrap_result(result)
         else:
             return result
-    
+
     def __setattr__(self, name, value):
         """ Easy access to attribute modification """
         # Simple hack for break setattr recursion
@@ -85,14 +88,14 @@ class Parser(object):
             super(Parser, self).__setattr__(name, value)
         if name in self.element.attrib:
             self.element.attrib[name] = value
-    
+
     def __nonzero__(self):
         return self.element is not None
 
 
-def parse(html_string, wrapper=Parser):
+def parse(html_string, wrapper=Parser, *args, **kwargs):
     """ Parse html with wrapper """
-    return Parser(lxml.html.fromstring(html_string))
+    return Parser(lxml.html.fromstring(html_string), *args, **kwargs)
 
 
 def str2int(string_with_int):
