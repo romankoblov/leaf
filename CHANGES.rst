@@ -1,6 +1,12 @@
 Change log
 ==========
 
+0.4.4
+-----
+ - fix inner_html method
+ - added **kwargs to the parse function, added inner_html method to the Parser class
+ - cssselect in deps
+
 0.4.2
 -----
  - Node attribute modification via node.href = '/blah'
