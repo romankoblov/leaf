@@ -28,12 +28,16 @@ class Parser(object):
                 pass
         return default
 
-    def html(self):
+    def html(self, unicode=False):
         """ Return html of element """
-        return lxml.html.tostring(self.element, encoding=self.encoding)
+        html = lxml.html.tostring(self.element, encoding=self.encoding)
+        if unicode:
+            html = html.decode(self.encoding)
+        return html
 
     def inner_html(self):
-        return ''.join([child.html() for child in self.iterdescendants()])
+        return getattr(self, 'text', '') + ''.join(
+                child.html(unicode=True) for child in self.iterchildren())
 
     def __unicode__(self):
         return lxml.html.tostring(self.element, method='text', encoding=self.encoding).decode(self.encoding)
