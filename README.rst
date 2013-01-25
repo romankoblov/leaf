@@ -1,7 +1,5 @@
 Leaf
 ====
-[![endorse](http://api.coderwall.com/penpen/endorsecount.png)](http://coderwall.com/penpen)
-
 What is this?
 -------------
 This is a simple wrapper around lxml, which adds some nice features,
