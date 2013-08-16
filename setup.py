@@ -7,7 +7,7 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(name='leaf',
-    version='0.4.4',
+    version='0.4.5',
     description='Simple Python library for HTML parsing',
     author='Roman Koblov',
     author_email='pingu.g@gmail.com',
