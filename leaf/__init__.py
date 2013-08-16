@@ -5,6 +5,7 @@ import lxml.html
 import unicodedata
 import string
 from lxml.cssselect import CSSSelector
+from lxml import etree
 
 class Parser(object):
     """ Simple wrapper around lxml object """
@@ -36,8 +37,11 @@ class Parser(object):
         return html
 
     def inner_html(self):
-        return getattr(self, 'text', '') + ''.join(
-                child.html(unicode=True) for child in self.iterchildren())
+        parts = [getattr(self, 'text', '') or '']
+        for child in self.iterchildren():
+            if not child.tag is etree.Comment:
+                parts.append(child.html(unicode=True))
+        return ''.join(parts)
 
     def __unicode__(self):
         return lxml.html.tostring(self.element, method='text', encoding=self.encoding).decode(self.encoding)

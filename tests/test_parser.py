@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 # encoding: utf-8
 import sys
-sys.path.append("../leaf")
+from os.path import abspath, dirname
+
+sys.path.insert(0, dirname(dirname(abspath(__file__))))
 import leaf
+
 
 sample = open('tests/sample.html').read()
 
@@ -38,8 +41,14 @@ def test_inner_methods():
     link = document.xpath('body/div/ul/li[@class="active_link"]')[0]
     assert link.get('a').text == ' Test link 5', 'XPath by inner lxml method'
 
+def test_inner_html():
+    html = '''<div>xxx <!-- comment --> yyy <p>foo</p> zzz</div>'''
+    dom = leaf.parse(html)
+    assert dom.inner_html() == 'xxx <p>foo</p> zzz'
+
 if __name__ == '__main__':
     test_selectors()
     test_attribs()
     test_html()
     test_inner_methods()
+    test_inner_html()
