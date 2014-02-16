@@ -1,5 +1,8 @@
 Leaf
 ====
+.. image:: https://travis-ci.org/penpen/Leaf.png?branch=master
+   :target: https://travis-ci.org/penpen/Leaf
+
 What is this?
 -------------
 This is a simple wrapper around lxml, which adds some nice features,
@@ -20,7 +23,7 @@ Features
 
 Description
 -----------
-Main function of module (as I mind) is leaf.parse, this function takes string with 
+Main function of module (as I mind) is leaf.parse, this function takes string with
 html as an argument, and returns leaf.Parser object, which wraps lxml object.
 With this object you can do anything you want, like this::
 
@@ -35,11 +38,11 @@ And you can get attributes from these results like this::
 
 	print link.onclick
 
-Anyway, you can use standard lxml methods like object.xpath, and they returns results 
+Anyway, you can use standard lxml methods like object.xpath, and they returns results
 wrapped into leaf.Parser.
 So, my favorite feature is parsing html into bbcode (markdown, etc)::
 
-	# Lets define simple formatter, which pass text 
+	# Lets define simple formatter, which pass text
 	# and wraps links into [url][/url] (like bbcode)
 	def omgcode_formatter(element, children):
 		# Replace <br> tag with line break
@@ -52,7 +55,7 @@ So, my favorite feature is parsing html into bbcode (markdown, etc)::
 	    if children:
 	        return children
 
-This function will be recursively called with element and children (this is string with 
+This function will be recursively called with element and children (this is string with
 children parsing result).
 So, lets call this parser in some leaf.Parser object::
 
