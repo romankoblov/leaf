@@ -1,2 +1,3 @@
 lxml>=2.3beta1
 cssselect
+six

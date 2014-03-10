@@ -9,6 +9,7 @@ import leaf
 
 sample = open('tests/sample.html').read()
 
+
 def test_selectors():
     document = leaf.parse(sample)
     links = document('div#menu a')
@@ -17,6 +18,7 @@ def test_selectors():
     assert links2[-1].text == ' Test link 5', "Access by id and element type 2"
     assert len(document('a')) == 9
     assert document('li.active_link a')[0].text == ' Test link 5', "Access by class"
+
 
 def test_attribs():
     document = leaf.parse(sample)
@@ -31,15 +33,18 @@ def test_attribs():
     first_link.onclick = 'blah()'
     assert first_link.onclick == 'blah()', "Attribute modification"
 
+
 def test_html():
     document = leaf.parse(sample)
     link = document.get('div#content li.link2')
-    assert link.html() == '<li class="link2"><a href="#3"> Test link3</a></li>\n\t\t', "Convert element to html code"
+    assert link.html() == b'<li class="link2"><a href="#3"> Test link3</a></li>\n\t\t', "Convert element to html code"
+
 
 def test_inner_methods():
     document = leaf.parse(sample)
     link = document.xpath('body/div/ul/li[@class="active_link"]')[0]
     assert link.get('a').text == ' Test link 5', 'XPath by inner lxml method'
+
 
 def test_inner_html():
     html = '''<div>xxx <!-- comment --> yyy <p>foo</p> zzz</div>'''

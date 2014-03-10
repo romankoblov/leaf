@@ -6,6 +6,7 @@ import leaf
 sample = open('tests/sample2.html').read()
 sample_result = open('tests/bbcode_result.txt').read()
 
+
 def bbcode_formatter(element, childrens, site):
     if element.tag == 'br':
         return '\n'
@@ -26,13 +27,14 @@ def bbcode_formatter(element, childrens, site):
     if childrens:
         return childrens
 
+
 def test_bbcode():
     document = leaf.parse(sample)
     bbcode = document.parse(bbcode_formatter, 'http://example.com/')
-    bbcode = leaf.strip_linebreaks(bbcode)
     bbcode = leaf.strip_spaces(bbcode)
     bbcode = leaf.strip_symbols(bbcode)
-    print bbcode
+    bbcode = leaf.strip_linebreaks(bbcode)
+
     assert bbcode == leaf.to_unicode(sample_result), "Sample bbcode formatter"
 
 if __name__ == '__main__':
