@@ -9,6 +9,6 @@ install:
     - pip install coveralls
 # command to run tests
 script:
-  nosetests  --with-coverage --cover-package=leaf
+  nosetests --with-coverage --cover-package=leaf
 after_success:
   coveralls
