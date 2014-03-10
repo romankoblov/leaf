@@ -16,7 +16,7 @@ setup(
     url='https://github.com/penpen/Leaf',
     license='MIT',
     keywords=['html', 'parsing', 'web scrapping'],
-    packages=['leaf', 'cssselect', 'six'],
+    packages=['leaf'],
     data_files=[
             ('', ['LICENSE', 'README.rst', 'AUTHORS.rst'])
     ],
@@ -33,6 +33,6 @@ setup(
                  'Programming Language :: Python :: 3',
                  'Programming Language :: Python :: 3.3',
                  'Topic :: Scientific/Engineering :: Information Analysis'],
-    install_requires=['setuptools', 'lxml'],
-    long_description=read('README.rst')+read('CHANGES.rst'),
+    install_requires=['setuptools', 'lxml', 'cssselect', 'six'],
+    long_description=read('README.rst') + read('CHANGES.rst'),
 )
