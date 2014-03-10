@@ -1,12 +1,3 @@
 [run]
-omit =
-    */python?.?/*
-    */lib-python/?.?/*.py
-    */lib_pypy/_*.py
-    */site-packages/ordereddict.py
-    */site-packages/nose/*
-    */unittest2/*
+source = leaf
 
-exclude_lines =
-    # Have to re-enable the standard pragma
-    pragma: no cover
