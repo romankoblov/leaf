@@ -11,7 +11,10 @@ def test_str2int():
 
 
 def test_to_unicode():
-    assert type(leaf.to_unicode("test")) == text_type
+    if sys.version_info == 3:
+        assert type(leaf.to_unicode("test")) == text_type
+    else:
+        assert type(leaf.to_unicode("test")) == str
     assert type(leaf.to_unicode(u"blah")) == text_type
 
 

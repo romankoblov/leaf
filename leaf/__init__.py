@@ -7,6 +7,7 @@ import string
 from lxml.cssselect import CSSSelector
 from lxml import etree
 from six import string_types, text_type
+from sys import version_info
 
 
 class Parser(object):
@@ -117,6 +118,9 @@ def to_unicode(obj, encoding='utf-8'):
     """ Convert string to unicode string """
     if isinstance(obj, string_types):
         if not isinstance(obj, text_type):
+            if version_info == 2:
+                obj = unicode(obj)
+                return obj
             obj = obj.encode(encoding)
     return obj
 
