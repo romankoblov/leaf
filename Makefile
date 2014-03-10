@@ -1,5 +1,10 @@
 python = python
-all: build
+git = git
+
+all: clean build
 
 build:
-	@ $(python) setup.py sdist register upload
+	@ $(python) setup.py clean sdist register upload
+
+clean:
+	@ $(git) clean -dfx
