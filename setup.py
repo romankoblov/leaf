@@ -16,7 +16,7 @@ setup(
     url='https://github.com/penpen/Leaf',
     license='MIT',
     keywords=['html', 'parsing', 'web scrapping'],
-    packages=['leaf'],
+    packages=['leaf', 'cssselect', 'six'],
     data_files=[
             ('', ['LICENSE', 'README.rst', 'AUTHORS.rst'])
     ],
