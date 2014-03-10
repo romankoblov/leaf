@@ -18,7 +18,7 @@ setup(
     keywords=['html', 'parsing', 'web scrapping'],
     packages=['leaf'],
     data_files=[
-            ('', ['LICENSE', 'README.rst', 'AUTHORS.rst'])
+            ('', ['LICENSE.txt', 'README.rst', 'AUTHORS.rst'])
     ],
     package_data={
         '': ['*.txt', '*.rst', '*.md']
