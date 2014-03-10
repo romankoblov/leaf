@@ -12,3 +12,4 @@ var
 sdist
 develop-eggs
 .installed.cfg
+.coverage
