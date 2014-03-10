@@ -74,8 +74,3 @@ Finally, this library has some nice functions for work with text:
 *strip_spaces* -- Strip excess spaces from a string
 
 *strip_linebreaks* -- Strip excess line breaks from a string
-
-.. image:: https://d2weczhvl823v0.cloudfront.net/penpen/leaf/trend.png
-   :alt: Bitdeli badge
-   :target: https://bitdeli.com/free
-

@@ -1,6 +1,11 @@
 Change log
 ==========
 
+1.0
+---
+ - add python3 support
+ - first production release
+
 0.4.4
 -----
  - fix inner_html method
@@ -16,8 +21,7 @@ Change log
 0.4.1
 -----
  - bool(node) returns True if element exists and False if element is None
- 
 
 0.4
 ---
-First public version
+ - First public version
