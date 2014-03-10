@@ -1,7 +1,10 @@
 Leaf
 ====
-.. image:: https://travis-ci.org/penpen/Leaf.png?branch=master :target: https://travis-ci.org/penpen/Leaf
-.. image:: https://coveralls.io/repos/penpen/Leaf/badge.png :target: https://coveralls.io/r/penpen/Leaf
+.. image:: https://travis-ci.org/penpen/Leaf.png?branch=master
+   :target: https://travis-ci.org/penpen/Leaf
+
+.. image:: https://coveralls.io/repos/penpen/Leaf/badge.png
+   :target: https://coveralls.io/r/penpen/Leaf
 
 What is this?
 -------------
