@@ -24,9 +24,11 @@ def test_attribs():
     document = leaf.parse(sample)
     first_link = document.get('div#menu li')
     assert document.get('div#menu a', 4).text == ' Test link 5', "Get element by index"
+    assert document.get('div#menu a', 4).__unicode__() == ' Test link 5', "Unicode test on python2"
     assert document.get('div#menu a', 99, default='blah') == 'blah', "Custom default value for get"
-    assert bool(document.get('div#menu li')) == True, "Node bool"
-    assert bool(document.get('div#menu_test li')) == False, "Node bool"
+    assert document.find('body/div[4]').tag == 'div', "ETree find"
+    assert bool(document.get('div#menu li')), "Node bool"
+    assert bool(document.get('div#menu_test li')) is False, "Node bool"
     assert isinstance(first_link, leaf.Parser), "Get first element"
     assert first_link.id == 'first_link', "Id attrib"
     assert first_link.onclick == "alert('test')", "Onclick attrib"
