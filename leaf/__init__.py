@@ -11,7 +11,9 @@ from sys import version_info
 
 
 class Parser(object):
+
     """ Simple wrapper around lxml object """
+
     def __init__(self, element, encoding="utf8"):
         self.element = element
         self.encoding = encoding
@@ -66,7 +68,7 @@ class Parser(object):
         """ Wrap result in Parser instance """
         def wrapper(*args):
             result = func(*args)
-            if hasattr(result, '__iter__'):
+            if hasattr(result, '__iter__') and not isinstance(result, etree._Element):
                 return [self._wrap_element(element) for element in result]
             else:
                 return self._wrap_element(result)
@@ -119,8 +121,7 @@ def to_unicode(obj, encoding='utf-8'):
     if isinstance(obj, string_types):
         if not isinstance(obj, text_type):
             if version_info == 2:
-                obj = unicode(obj)
-                return obj
+                return unicode(obj)
             obj = obj.encode(encoding)
     return obj
 
