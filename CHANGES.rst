@@ -1,6 +1,11 @@
 Change log
 ==========
 
+1.0.1
+===
+ - 100% test coverage
+ - fixed bug in result wrapping (etree._Element has __iter__ too!)
+
 1.0
 ---
  - add python3 support
