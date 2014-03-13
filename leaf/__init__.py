@@ -50,6 +50,8 @@ class Parser(object):
     def __unicode__(self):
         return lxml.html.tostring(self.element, method='text', encoding=self.encoding).decode(self.encoding)
 
+    __str__ = __unicode__
+
     def parse(self, func, *args, **kwargs):
         """ Parse element with given function"""
         result = []
