@@ -6,8 +6,7 @@ import unicodedata
 import string
 from lxml.cssselect import CSSSelector
 from lxml import etree
-from six import string_types, text_type
-from sys import version_info
+from six import string_types, text_type, binary_type
 
 
 class Parser(object):
@@ -120,8 +119,9 @@ def str2int(string_with_int):
 
 def to_unicode(obj, encoding='utf-8'):
     """ Convert string to unicode string """
-    if not isinstance(obj, text_type):
-        obj = text_type(obj, encoding)
+    if isinstance(obj, string_types) or isinstance(obj, binary_type):
+        if not isinstance(obj, text_type):
+            obj = text_type(obj, encoding)
     return obj
 
 
