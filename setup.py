@@ -13,7 +13,7 @@ setup(
     description='Simple Python library for HTML parsing',
     author='Roman Koblov',
     author_email='pingu.g@gmail.com',
-    url='https://github.com/penpen/Leaf',
+    url='https://github.com/penpen/leaf',
     license='MIT',
     keywords=['html', 'parsing', 'web scrapping'],
     packages=['leaf'],
