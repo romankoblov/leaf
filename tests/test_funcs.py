@@ -11,11 +11,9 @@ def test_str2int():
 
 
 def test_to_unicode():
-    if sys.version_info == 3:
-        assert type(leaf.to_unicode("test")) == text_type
-    else:
-        assert type(leaf.to_unicode("test")) == str
-    assert type(leaf.to_unicode(u"blah")) == text_type
+    assert isinstance(leaf.to_unicode("test"), text_type)
+    assert isinstance(leaf.to_unicode(u"blah"), text_type)
+    assert isinstance(leaf.to_unicode(b"blah"), text_type)
 
 
 def test_strip_accents():
@@ -28,7 +26,8 @@ def test_strip_symbols():
 
 
 def test_strip_spaces():
-    assert leaf.strip_spaces('   blah    sdsdf a         adddd d         ') == 'blah sdsdf a adddd d', "Strip excess spaces from a string"
+    assert leaf.strip_spaces(
+        '   blah    sdsdf a         adddd d         ') == 'blah sdsdf a adddd d', "Strip excess spaces from a string"
 
 
 def test_strip_linebreaks():

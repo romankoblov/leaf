@@ -105,6 +105,8 @@ class Parser(object):
     def __nonzero__(self):
         return self.element is not None
 
+    __bool__ = __nonzero__
+
 
 def parse(html_string, wrapper=Parser, *args, **kwargs):
     """ Parse html with wrapper """
@@ -118,11 +120,8 @@ def str2int(string_with_int):
 
 def to_unicode(obj, encoding='utf-8'):
     """ Convert string to unicode string """
-    if isinstance(obj, string_types):
-        if not isinstance(obj, text_type):
-            if version_info == 2:
-                return unicode(obj)
-            obj = obj.encode(encoding)
+    if not isinstance(obj, text_type):
+        obj = text_type(obj, encoding)
     return obj
 
 
