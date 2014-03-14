@@ -1,7 +1,7 @@
 Leaf
 ====
-.. image:: https://travis-ci.org/penpen/Leaf.png?branch=master
-   :target: https://travis-ci.org/penpen/Leaf
+.. image:: https://travis-ci.org/penpen/leaf.png?branch=master
+   :target: https://travis-ci.org/penpen/leaf
 
 .. image:: https://coveralls.io/repos/penpen/leaf/badge.png?branch=master 
    :target: https://coveralls.io/r/penpen/leaf?branch=master
