@@ -34,7 +34,7 @@ class Parser(object):
         return default
 
     def html(self, unicode=False):
-        """ Return html of element """
+        """ Return HTML of element """
         html = lxml.html.tostring(self.element, encoding=self.encoding)
         if unicode:
             html = html.decode(self.encoding)
