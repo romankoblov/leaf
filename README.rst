@@ -22,11 +22,9 @@ Leaf
 What is this?
 -------------
 
-This is a simple wrapper around lxml_ which adds some nice features
-to make working with lxml better. This library covers all my needs in
+This is a simple wrapper around `lxml <http://lxml.de/>`_ which adds some nice
+features to make working with lxml better. This library covers all my needs in
 HTML parsing.
-
-.. _lxml: https://pypi.python.org/pypi/lxml/
 
 Dependencies
 ------------
@@ -36,7 +34,7 @@ Dependencies
 Features
 --------
 
-* Nice jquery-like css selectors
+* Nice jquery-like CSS selectors
 * Simple access to element attributes
 * Easy way to convert HTML to other formats (bbcode, markdown, etc.)
 * A few nice functions for working with text
@@ -67,7 +65,7 @@ And you can get attributes from these results like this::
 You can also use standard lxml methods like ``object.xpath``,
 and they return results as ``leaf.Parser`` objects.
 
-My favorite feature is parsing HTML into bbcode (markdown, etck)::
+My favorite feature is parsing HTML into bbcode (markdown, etc.)::
 
     # Let's define simple formatter, which passes text
     # and wraps links into [url][/url] (like bbcode)
