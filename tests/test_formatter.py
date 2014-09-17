@@ -7,25 +7,25 @@ sample = open('tests/sample2.html').read()
 sample_result = open('tests/bbcode_result.txt').read()
 
 
-def bbcode_formatter(element, childrens, site):
+def bbcode_formatter(element, children, site):
     if element.tag == 'br':
         return '\n'
     if element.tag == 'a':
-        return u"[url={site}/redirect.php?url={link}]{text}[/url]".format(site=site, link=element.href, text=childrens)
+        return u"[url={site}/redirect.php?url={link}]{text}[/url]".format(site=site, link=element.href, text=children)
     if element.tag == 'img':
-        return u"[img={link}]{text}[/img]".format(link=element.src, text=childrens)
+        return u"[img={link}]{text}[/img]".format(link=element.src, text=children)
     if element.tag in ['b', 'strong']:
-        return u"[b]{text}[/b]".format(text=childrens)
+        return u"[b]{text}[/b]".format(text=children)
     if element.tag in ['em', 'i']:
-        return u"[i]{text}[/i]".format(text=childrens)
+        return u"[i]{text}[/i]".format(text=children)
     if element.tag in ['del', 's']:
-        return u"[s]{text}[/s]".format(text=childrens)
+        return u"[s]{text}[/s]".format(text=children)
     if element.tag == 'u':
-        return u"[u]{text}[/u]".format(text=childrens)
+        return u"[u]{text}[/u]".format(text=children)
     if element.tag == 'title':
         return u""
-    if childrens:
-        return childrens
+    if children:
+        return children
 
 
 def test_bbcode():
