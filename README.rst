@@ -1,11 +1,11 @@
 Leaf
 ====
 
-.. image:: https://travis-ci.org/penpen/leaf.png?branch=master
-   :target: https://travis-ci.org/penpen/leaf
+.. image:: https://travis-ci.org/romankoblov/leaf.png?branch=master
+   :target: https://travis-ci.org/romankoblov/leaf
 
-.. image:: https://coveralls.io/repos/penpen/leaf/badge.png?branch=master 
-   :target: https://coveralls.io/r/penpen/leaf?branch=master
+.. image:: https://coveralls.io/repos/romankoblov/leaf/badge.png?branch=master 
+   :target: https://coveralls.io/r/romankoblov/leaf?branch=master
 
 .. image:: https://img.shields.io/pypi/dm/Leaf.svg
     :target: https://pypi.python.org/pypi/Leaf/
