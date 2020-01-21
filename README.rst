@@ -7,16 +7,16 @@ Leaf
 .. image:: https://coveralls.io/repos/penpen/leaf/badge.png?branch=master 
    :target: https://coveralls.io/r/penpen/leaf?branch=master
 
-.. image:: https://img.shields.io/pypi/dm/leaf.svg
-    :target: https://pypi.python.org/pypi//leaf/
+.. image:: https://img.shields.io/pypi/dm/Leaf.svg
+    :target: https://pypi.python.org/pypi/Leaf/
     :alt: Downloads
 
 .. image:: https://img.shields.io/pypi/v/leaf.svg
     :target: https://pypi.python.org/pypi/leaf/
     :alt: Latest Version
 
-.. image:: https://img.shields.io/pypi/l/leaf.svg
-    :target: https://pypi.python.org/pypi/leaf/
+.. image:: https://img.shields.io/pypi/l/Leaf.svg
+    :target: https://pypi.python.org/pypi/Leaf/
     :alt: License
 
 What is this?
