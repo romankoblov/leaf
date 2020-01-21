@@ -1,5 +1,5 @@
 include *.txt
-include *.rst
+include *.md
 include LICENSE
 prune tmp
 

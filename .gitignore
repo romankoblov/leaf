@@ -13,3 +13,4 @@ sdist
 develop-eggs
 .installed.cfg
 .coverage
+.history
