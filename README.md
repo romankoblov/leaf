@@ -2,13 +2,9 @@
 
 
 [![image](https://travis-ci.org/romankoblov/leaf.png?branch=master)](https://travis-ci.org/romankoblov/leaf)
-
 [![Coverage Status](https://coveralls.io/repos/github/romankoblov/leaf/badge.svg?branch=master)](https://coveralls.io/github/romankoblov/leaf?branch=master)
-
 [![Downloads](https://img.shields.io/pypi/dm/Leaf.svg)](https://pypi.python.org/pypi/Leaf/)
-
 [![Latest Version](https://img.shields.io/pypi/v/leaf.svg)](https://pypi.python.org/pypi/leaf/)
-
 [![License](https://img.shields.io/pypi/l/Leaf.svg)](https://pypi.python.org/pypi/Leaf/)
 
 What is this?
