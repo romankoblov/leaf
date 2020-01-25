@@ -2,6 +2,10 @@
 title: Change log
 ---
 
+1.0.6
+=====
+> - Fix installation script on LICENSE file
+
 1.0.4
 =====
 > - Convert documentation to Markdown

@@ -9,20 +9,18 @@ def read(fname):
 
 setup(
     name='leaf',
-    version='1.0.4',
+    version='1.0.6',
     description='Simple Python library for HTML parsing',
     author='Roman Koblov',
-    author_email='pingu.g@gmail.com',
+    author_email='hello@romankoblov.com',
     url='https://github.com/penpen/leaf',
     license='MIT',
     keywords=['html', 'parsing', 'web scrapping'],
     packages=['leaf'],
-    data_files=[
-            ('', ['LICENSE.md', 'README.md', 'AUTHORS.md'])
-    ],
     package_data={
         '': ['*.txt', '*.md']
     },
+    include_package_data=True,
     classifiers=['Development Status :: 5 - Production/Stable',
                  'Intended Audience :: Developers',
                  'License :: OSI Approved :: MIT License',
