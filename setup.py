@@ -9,7 +9,7 @@ def read(fname):
 
 setup(
     name='leaf',
-    version='1.0.6',
+    version='1.0.7',
     description='Simple Python library for HTML parsing',
     author='Roman Koblov',
     author_email='hello@romankoblov.com',

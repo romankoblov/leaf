@@ -1,5 +1,9 @@
 # Change log
 
+## 1.0.7
+> - Fix badges in README.md
+> - cleanup CHANGES.md
+
 ## 1.0.6
 > - Fix installation script on LICENSE file
 
